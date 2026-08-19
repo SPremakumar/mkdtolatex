@@ -1,6 +1,6 @@
-# Editeur de Markdown → LaTeX
+# 📝 Editeur de Markdown → LaTeX
 
-## Présentation
+## 📖 Présentation
 
 Editeur Markdown → LaTeX est une application web permettant de rédiger un document en Markdown et de le convertir automatiquement en LaTeX.
 
@@ -15,7 +15,7 @@ La communication entre le frontend et le backend est réalisée grâce à une AP
 
 ---
 
-## Fonctionnalités
+## 🚀 Fonctionnalités
 
 - Édition de texte en Markdown
 - Conversion automatique de Markdown vers LaTeX
@@ -28,7 +28,7 @@ La communication entre le frontend et le backend est réalisée grâce à une AP
 
 ---
 
-## Syntaxe Markdown prise en charge
+## ✍️ Syntaxe Markdown prise en charge
 
 L'éditeur de Markdown → LaTeX prend en charge plusieurs éléments de la syntaxe Markdown et les convertit en LaTeX :
 
@@ -48,9 +48,9 @@ L'éditeur de Markdown → LaTeX prend en charge plusieurs éléments de la synt
 
 ---
 
-## Technologies utilisées
+## 🛠️ Technologies utilisées
 
-### Frontend
+### 💻 Frontend
 
 - React
 - JavaScript
@@ -59,7 +59,7 @@ L'éditeur de Markdown → LaTeX prend en charge plusieurs éléments de la synt
 - Markdown-it
 - CSS
 
-### Backend
+### ⚙️Backend
 
 - Python
 - Flask
