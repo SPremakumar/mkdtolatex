@@ -1,0 +1,37 @@
+# Environnement virtuel
+env/
+venv/
+.venv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Fichiers de test / couverture
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environnements / variables
+.env
+.env.*
+!.env.example
+
+# IDE / éditeurs
+.vscode/
+.idea/
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Fichiers générés
+*.pyc

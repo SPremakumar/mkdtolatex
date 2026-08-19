@@ -1,0 +1,11 @@
+-> pour les images :
+	-> pour les légendes, il faut absolument mettre "" et pas ''. 
+	-> les liens doit être mis sans GUILLEMENTS, sans ESPACES. (directement après '(' ).
+
+-> pour les blocks de code : 
+	-> il faut mettre après les ``` le langage de programmation. SANS ESPACE, SANS MAJ. 
+
+-> pour les tableaux :
+	-> faire attention aux espaces.
+		-> càd les colonnes doivent avoir les mêmes espacements.
+	-> il est possible de mettre une légende à la fin, en faisant simple []. 

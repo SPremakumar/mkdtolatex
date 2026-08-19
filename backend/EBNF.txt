@@ -1,0 +1,85 @@
+(* Document Markdown *)
+document = { newline }, { block }, { newline };
+
+
+(* Blocs *)
+block           = heading 
+                | list 
+                | horizontalrule 
+                | paragraph 
+                | image
+                | quote
+                | table
+                | codeblock
+                ;
+
+
+(* Titres (niveaux 1 à 6) *)
+heading         = ("#" | "##" | "###" | "####" | "#####" | "######"), " ", text, newline ;
+
+
+(* Listes *)
+list            = unorderedlist | orderedlist ;
+unorderedlist   = { unordereditem } ;
+orderedlist     = { ordereditem } ;
+unordereditem   = "*", " ", inline, newline, { indenteditem } ;
+ordereditem     = digit, ".", " ", inline, newline, { indenteditem } ;
+indenteditem    = { " " }, { "\t" }, "*", " ", inline, newline ;
+
+
+(* Règle horizontale *)
+horizontalrule  =  "***", newline ;
+
+
+(* Image *)
+image           = "![", text, "](", text, ")" ;
+
+
+(* Paragraphe *)
+paragraph       = { inline }, newline, { newline } ;
+
+
+(* Citation *)
+quote           = ">", " ", text, newline ;
+
+
+(* Table *)
+table           = tableheader, tabledivider, { tablerow } ;
+tableheader     = "|", { tablecell, "|" }, newline ;
+tabledivider    = "|", { "-" | ":", "-", { "-", ":", "-" }, "|" }, newline ;
+tablerow        = "|", { tablecell, "|" }, newline ;
+tablecell       = { text } ;
+
+
+(* contenu en ligne *)
+inline          = { text | bold | italic | bold_italic | link | inlinecode } ;
+bold            = "**", text, "**" ;
+italic          = "*", text, "*" ;
+bold_italic     = "***", text, "***" ;
+link            = "[", text, "](", text, ")" ; 
+inlinecode      = "`", text, "`" ; 
+
+
+(* Code en bloc *)
+codeblock       = codeblockstart, { codeblockline }, codeblockend ;
+codeblockstart  = "```", { optional_lang }, newline ;
+codeblockline   = { text }, newline ;
+codeblockend    = "```", newline ;
+optional_lang    = { text } ;  // Langage optionnel pour la coloration syntaxique
+
+
+(* Texte normal *)
+text            = { character } ;
+
+
+(* Sauts de ligne *)
+newline         = "\n" ;
+
+
+(* Composants de base *)
+character       = ? any printable character except newline and special characters ? ;
+digit           = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
+
+(* Caractères spéciaux exclus des textes normaux *)
+special characters = "*", "_", "`", "[", "]", "(", ")", "#", "-", "." ;

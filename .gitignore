@@ -1,0 +1,40 @@
+# Python / Flask
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnements virtuels
+venv/
+.venv/
+env/
+ENV/
+
+# Fichiers de configuration locaux
+.env
+.env.*
+
+# React / Node / Vite
+node_modules/
+dist/
+build/
+
+# Variables d'environnement frontend
+frontend/.env
+frontend/.env.*
+
+# IDE / éditeurs
+.vscode/
+.idea/
+
+# Système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.temp
+
+# Fichiers générés
+*.pyc

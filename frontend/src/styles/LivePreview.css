@@ -1,0 +1,79 @@
+/*LivePreview.css*/ 
+
+/* principale */
+.live-preview {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Titre */
+.preview-title {
+  margin: 0 0 15px 0;
+
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #888;
+
+  text-align: center;
+}
+
+/* Zone de prévisualisation */
+.preview-content {
+  width: 100%;
+  height: 500px;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333333;
+
+  text-align: left;
+
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Survol */
+.preview-content:hover {
+  border-color: #bdbdbd;
+}
+
+/* Responsive les différents types d'écrans */
+@media (max-width: 900px) {
+  .editor-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .preview-content {
+    height: 400px;
+  }
+
+  .markdown-editor-container {
+    height: 400px;
+  }
+
+  .markdown-editor-container .react-markdown-editor-lite {
+    height: 400px !important;
+    min-height: 400px !important;
+  }
+
+  .markdown-editor-container .section-container {
+    height: calc(400px - 45px);
+  }
+}
+
