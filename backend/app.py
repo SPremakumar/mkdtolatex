@@ -18,7 +18,6 @@ else:
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend", "dist")
 
 
-
 # Création de l'application flask
 app = Flask(
     __name__,
@@ -26,8 +25,13 @@ app = Flask(
     static_url_path=""
 )
 
-CORS(app, origins=["http://localhost:5173"])
+# CORS(app, origins=["http://localhost:5173"])
+FRONTEND_ORIGIN = os.environ.get(
+    "FRONTEND_ORIGIN",
+    "http://localhost:5173"
+)
 
+CORS(app, origins=[FRONTEND_ORIGIN])
 
 # Réception, traitement et renvoie du Markdown envoyé par le frontend : 
 @app.route("/api/markdown", methods=["POST"])
