@@ -54,7 +54,6 @@ const Menu = ({darkMode,setDarkMode,texte,setTexte,latex, setLatex}) => {
     event.target.value = '';
   };
 
-  // Télécharger le document Markdown
   // Télécharger le document LaTeX généré
   const handleDownload = () => {
     if (!latex) {
@@ -79,7 +78,7 @@ const Menu = ({darkMode,setDarkMode,texte,setTexte,latex, setLatex}) => {
     URL.revokeObjectURL(url);
 
     closeMenu();
-};
+  };
 
   // Changer le mode clair / sombre
   const handleDarkMode = () => {
@@ -87,6 +86,24 @@ const Menu = ({darkMode,setDarkMode,texte,setTexte,latex, setLatex}) => {
     closeMenu();
   };
 
+
+  // quitter l'app :
+  const handleQuit = async () => {
+    try {
+      await fetch('http://127.0.0.1:5000/api/shutdown', {
+        method: 'POST',
+      });
+    } catch (error) {
+      console.log('Application arrêtée.');
+    }
+
+    closeMenu();
+  };
+
+
+
+
+  // le composant :
   return (
     <div className="menu-container">
 
@@ -117,7 +134,9 @@ const Menu = ({darkMode,setDarkMode,texte,setTexte,latex, setLatex}) => {
             📄 Nouveau document
           </button>
 
-
+          <button onClick={handleQuit}>
+            ❌ Quitter l'application
+          </button>
         </div>
       )}
 

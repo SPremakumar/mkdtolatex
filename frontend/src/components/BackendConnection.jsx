@@ -1,5 +1,5 @@
 // URL de l'API flask
-const API_URL = 'http://localhost:5000/api';
+const API_URL = '/api';
 
 // gère les communication avec le backend
 export const sendMarkdown = async (texte) => {
