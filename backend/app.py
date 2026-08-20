@@ -17,6 +17,10 @@ else:
 
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend", "dist")
 
+ENABLE_SHUTDOWN = os.environ.get(
+    "ENABLE_SHUTDOWN",
+    "true"
+).lower() == "true"
 
 # Création de l'application flask
 app = Flask(
@@ -32,6 +36,7 @@ FRONTEND_ORIGIN = os.environ.get(
 )
 
 CORS(app, origins=[FRONTEND_ORIGIN])
+
 
 # Réception, traitement et renvoie du Markdown envoyé par le frontend : 
 @app.route("/api/markdown", methods=["POST"])
@@ -52,6 +57,12 @@ def convert_markdown_to_latex():
 # Quitter l'application
 @app.route("/api/shutdown", methods=["POST"])
 def shutdown():
+
+    if not ENABLE_SHUTDOWN:
+        return jsonify({
+            "message": "Fonction désactivée."
+        }), 403
+
     shutdown_func = app.config.get("SHUTDOWN_SERVER")
 
     if shutdown_func is None:
